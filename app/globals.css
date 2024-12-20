@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+.font-aviano-bold {
+  font-family: var(--font-aviano-bold);
+}
+
+.font-aviano-regular {
+  font-family: var(--font-aviano-regular);
+}
+
+.font-outfit-sans {
+  font-family: var(--font-outfit-sans);
+}
