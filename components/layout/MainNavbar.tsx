@@ -80,14 +80,14 @@ const MainNavbar = () => {
   return (
     <section className={`relative z-50`}>
       <div
-        className={`w-full py-0 xl:py-3 fixed top-0 transition-colors duration-300 ${
+        className={`w-full py-3 md:py-3 fixed top-0 transition-colors duration-300 ${
           navbarColor
             ? "!bg-white shadow-small duration-1000"
             : "bg-transparent"
         } z-50`}
       >
         {/* Navbar top */}
-        <div className="hidden lg:block">
+        <div className="">
           <div className="flex items-center container justify-between">
             <div className="w-full flex items-center gap-x-10 2xl:gap-x-20">
               <Link href={"/"}>
@@ -100,14 +100,14 @@ const MainNavbar = () => {
                   alt="Hazel Logo"
                   width={500}
                   height={500}
-                  className="cursor-pointer w-[180px] xl:w-[150px] h-auto mt-2 mb-2"
+                  className="cursor-pointer w-[100px] md:w-[180px] h-auto mt-2 mb-2"
                 />
               </Link>
             </div>
 
             <div className="w-full">
               <div
-                className={`flex items-center justify-end gap-x-10 xl:gap-x-12 ${
+                className={`flex items-center justify-end gap-x-4 md:gap-x-12 ${
                   navbarColor
                     ? "text-black border-black"
                     : "text-white border-white"
@@ -119,7 +119,7 @@ const MainNavbar = () => {
                 <div>
                   <TfiWorld className="size-5 hover:text-black" />
                 </div>
-                <div className="">
+                <div className="hidden lg:block">
                   <Link
                     href={`/`}
                     className={`cursor-pointer uppercase text-lg lg:text-[17px] font-semibold transition-all duration-300 h-7 border-b-1 font-aviano-regular pb-1 ${
@@ -129,7 +129,7 @@ const MainNavbar = () => {
                     Boutiques
                   </Link>
                 </div>
-                <div className="">
+                <div className="hidden lg:block">
                   <Link
                     href={`/`}
                     className={`cursor-pointer uppercase text-lg lg:text-[17px] font-semibold transition-all duration-300 h-7 border-1 p-2 font-aviano-regular ${

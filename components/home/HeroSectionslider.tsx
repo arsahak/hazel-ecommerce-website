@@ -90,7 +90,7 @@ const HeroSectionslider = () => {
 
   return (
     <div className="relative md:overflow-hidden">
-      <div className="relative h-[580px] md:h-[850px]">
+      <div className="relative h-[650px] md:h-[850px]">
         <Swiper
           loop={true}
           autoplay={{
@@ -108,7 +108,7 @@ const HeroSectionslider = () => {
         >
           {sliderData.map((el, index) => (
             <SwiperSlide key={index}>
-              <div className="relative h-[580px] md:h-[850px]">
+              <div className="relative h-[650px] md:h-[850px]">
                 <Image
                   src={el.image}
                   alt="home-banner"
