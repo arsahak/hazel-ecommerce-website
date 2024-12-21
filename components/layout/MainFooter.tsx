@@ -57,15 +57,18 @@ const MainFooter = () => {
   return (
     <div className="bg-[#E6E5E0]">
       <div className="container py-10 md:py-20">
-        <div className="flex justify-between items-start">
+        <div className="flex flex-col md:flex-row justify-center items-center md:justify-between md:items-start">
           {footerData?.map((section, index) => (
-            <div key={index} className="">
-              <h3 className="text-2xl font-semibold mb-5 uppercase font-aviano-regular">
+            <div key={index} className="mb-10 md:mb-0">
+              <h3 className="text-2xl font-semibold mb-3 md:mb-5 uppercase font-aviano-regular text-center md:text-left">
                 {section.title}
               </h3>
               <ul className="space-y-2">
                 {section.list.map((item, i) => (
-                  <li key={i}>
+                  <li
+                    key={i}
+                    className="flex items-start md:items-center md:justify-start justify-center"
+                  >
                     <Link
                       href={"/"}
                       target="_blank"
@@ -82,33 +85,39 @@ const MainFooter = () => {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between w-full space-x-10 mt-6">
-          <hr className="h-px my-8 bg-gray-400 border-0 w-[40%]" />
-          <div className="flex items-center justify-between space-x-2 w-[10%]">
-            <FaXTwitter className="size-5 font-black" />
-            <GrInstagram className="size-5 font-black" />
-            <FaLinkedin className="size-5 font-black" />
-            <FaFacebookSquare className="size-5 font-black" />
+        <div className="flex items-center justify-between w-full space-x-10 mt-0 md:mt-6 mb-4">
+          <hr className="h-px my-8 bg-gray-400 border-0 w-[20%] md:w-[40%]" />
+          <div className="flex items-center justify-between space-x-2 w-[60%] md:w-[10%]">
+            <FaXTwitter className="size-5 font-black cursor-pointer" />
+            <GrInstagram className="size-5 font-black cursor-pointer" />
+            <FaLinkedin className="size-5 font-black cursor-pointer" />
+            <FaFacebookSquare className="size-5 font-black cursor-pointer" />
           </div>
-          <hr className="h-px my-8 bg-gray-400 border-0 w-[40%]" />
+          <hr className="h-px my-8 bg-gray-400 border-0 w-[20%] md:w-[40%]" />
         </div>
-        <div className="flex items-center justify-between font-aviano-regular uppercase">
-          <h2>COPYRIGHT © HAZEL Norway. ALL RIGHTS RESERVED.</h2>
-          <div className="flex items-center justify-between space-x-5">
-            <Link href={"/privacy-policy"} className="hover:underline">
-              <h2>Privacy Policy</h2>
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center md:justify-between font-aviano-regular uppercase">
+          <h2 className="text-base md:text-lg text-center md:text-left">
+            COPYRIGHT © HAZEL Norway. ALL RIGHTS RESERVED.
+          </h2>
+          <div className="flex flex-col md:flex-row items-center justify-between space-6 mb-5 md:mb-0">
+            <Link href={"/privacy-policy"} className="hover:underline ">
+              <h2 className="text-base md:text-lg">Privacy Policy</h2>
             </Link>
             <Link href={"/cookie-policy"} className="hover:underline">
-              <h2>Cookie Policy</h2>
+              <h2 className="text-base md:text-lg">Cookie Policy</h2>
             </Link>
             <Link href={"/terms-and-conditions"} className="hover:underline">
-              <h2>Terms and Conditions</h2>
+              <h2 className="text-base md:text-lg">Terms and Conditions</h2>
             </Link>
           </div>
         </div>
-        <div className="font-aviano-regular uppercase text-center mt-24">
-          <h2 className="text-2xl font-semibold mb-3">DISCOVER NExT</h2>
-          <h2 className="text-4xl font-semibold">Explore Collect</h2>
+        <div className="font-aviano-regular uppercase text-center mt-6  md:mt-24">
+          <h2 className="text-lg md:text-2xl font-semibold mb-0 md:mb-3">
+            DISCOVER NExT
+          </h2>
+          <h2 className="text-2xl md:text-4xl font-semibold">
+            Explore Collect
+          </h2>
         </div>
       </div>
     </div>

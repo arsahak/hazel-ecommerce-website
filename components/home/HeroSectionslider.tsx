@@ -8,13 +8,7 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import {
-  Autoplay,
-  Keyboard,
-  Mousewheel,
-  Navigation,
-  Pagination,
-} from "swiper/modules";
+import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const sliderData = [
@@ -51,7 +45,8 @@ const sliderData = [
 ];
 
 const HeroSectionslider = () => {
-  const [sidlerIndexValue, setSidlerIndexValue] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<any>(null);
@@ -64,6 +59,10 @@ const HeroSectionslider = () => {
       swiperRef.current.navigation.update();
     }
   }, []);
+
+  const handleSlideChange = (swiper: any) => {
+    setCurrentIndex(swiper.activeIndex);
+  };
 
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -91,35 +90,32 @@ const HeroSectionslider = () => {
 
   return (
     <div className="relative md:overflow-hidden">
-      <div className="relative h-[480px] md:h-[850px]">
+      <div className="relative h-[580px] md:h-[850px]">
         <Swiper
-          className="mySwiper"
-          cssMode={true}
           loop={true}
           autoplay={{
-            delay: 5000,
+            delay: 3000,
             disableOnInteraction: false,
           }}
-          initialSlide={sidlerIndexValue}
-          keyboard={true}
-          modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
-          mousewheel={true}
-          // pagination={{ clickable: true }}
-          onBeforeInit={(swiper) => {
-            swiperRef.current = swiper;
+          speed={800}
+          modules={[Autoplay, Navigation, Pagination, Keyboard]}
+          onBeforeInit={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={handleSlideChange}
+          navigation={{
+            prevEl: prevButtonRef.current,
+            nextEl: nextButtonRef.current,
           }}
-          // onSlideChange={handleSlideChange}
         >
           {sliderData.map((el, index) => (
             <SwiperSlide key={index}>
-              <div className="relative h-[480px] md:h-[850px]">
+              <div className="relative h-[580px] md:h-[850px]">
                 <Image
                   src={el.image}
                   alt="home-banner"
                   layout="fill"
                   objectFit="cover"
                   priority
-                  className="z-10 hidden md:block"
+                  className="z-10"
                   rel="preload"
                 />
               </div>
@@ -147,7 +143,7 @@ const HeroSectionslider = () => {
                   Spring-Summer 2025
                 </motion.h2>
                 <motion.h1
-                  className={`text-[50px] md:text-[90px] text-white text-center md:text-left leading-[85px] tracking-normal font-aviano-regular`}
+                  className={`text-[50px] md:text-[90px] text-white text-center md:text-left leading-[55px] md:leading-[85px] tracking-normal font-aviano-regular`}
                 >
                   {text.map((word, index) => (
                     <motion.span
@@ -183,23 +179,29 @@ const HeroSectionslider = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center absolute bottom-10 container left-0 right-0">
+          <div className="flex justify-between items-center absolute bottom-4 md:bottom-10 container left-0 right-0">
             <button
               className="flex items-center space-x-3 text-white"
-              // onClick={() => setSidlerIndexValue((prev: any) => prev - 1)}
+              ref={prevButtonRef}
+              onClick={() => swiperRef.current?.slidePrev()}
             >
-              <BsArrowLeft className="size-6" />
-              <h2 className="font-aviano-regular text-lg">Previous</h2>
+              <BsArrowLeft className="size-4 md:size-6" />
+              <h2 className="font-aviano-regular text-sm md:text-lg  md:nav-item">
+                Previous
+              </h2>
             </button>
-            <h2 className="font-aviano-regular text-lg text-white border-b-2 border-white pb-2">
+            <h2 className="font-aviano-regular text-sm md:text-lg text-white border-b-2 border-white md:pb-2  md:nav-item">
               See the looks
             </h2>
             <button
               className="flex items-center space-x-3 text-white"
-              // onClick={() => setSidlerIndexValue((prev: any) => prev + 1)}
+              ref={nextButtonRef}
+              onClick={() => swiperRef.current?.slideNext()}
             >
-              <h2 className="font-aviano-regular text-lg">Next</h2>
-              <BsArrowRight className="size-6" />
+              <h2 className="font-aviano-regular text-sm md:text-lg  md:nav-item">
+                Next
+              </h2>
+              <BsArrowRight className="size-4 md:size-6" />
             </button>
           </div>
         </motion.div>

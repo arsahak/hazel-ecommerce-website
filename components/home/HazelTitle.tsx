@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const HazelTitle = () => {
   return (
-    <div className="bg-[#f2e3ec30] py-8">
+    <div className="bg-sectionbg py-8">
       <div className="container ">
-        <div className="relative h-[480px] md:h-[250px] flex justify-center items-center">
+        <div className="relative h-[150px] md:h-[250px] flex justify-center items-center">
           {/* Background Image */}
           <Image
             src="/assets/home/title-bg.png"

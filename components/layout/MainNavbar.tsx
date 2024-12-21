@@ -1,22 +1,29 @@
 "use client";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoReorderThreeOutline } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 import { TfiWorld } from "react-icons/tfi";
 
-import React, { useMemo, useState } from "react";
+const debounce = <T extends (...args: any[]) => void>(
+  func: T,
+  wait: number
+) => {
+  let timeout: NodeJS.Timeout | undefined;
+
+  return (...args: Parameters<T>): void => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
 
 const MainNavbar = () => {
+  const [isTroggleMenuOpen, setIsTroggleMenuOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const [navbarColor, setNavbarColor] = useState(false);
@@ -37,55 +44,73 @@ const MainNavbar = () => {
     []
   );
 
-  // const handleScroll = useCallback(
-  //   debounce(() => {
-  //     setNavbarColor(window.scrollY >= 100);
-  //   }, 100),
-  //   []
-  // );
+  const handleScroll = useCallback(
+    debounce(() => {
+      setNavbarColor(window.scrollY >= 100);
+    }, 100),
+    []
+  );
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [handleScroll]);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
-  // className={`pb-0 pt-2 md:pb-3 md:pt-4 fixed top-0 transition-colors duration-300 ${navbarColor ? "!bg-white shadow-small duration-1000" : "bg-transparent"}`}
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    if (isMenuOpen) {
+      // Delay the scroll lock by 1 second
+      timeoutId = setTimeout(() => {
+        document.body.style.overflow = "hidden";
+      }, 1000);
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Clean up the effect and clear timeout
+    return () => {
+      clearTimeout(timeoutId);
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
 
   return (
-    <section className={`relative z-50 `}>
+    <section className={`relative z-50`}>
       <div
-        className={`w-full py-0 xl:py-2 fixed top-0 transition-colors duration-300 ${
+        className={`w-full py-0 xl:py-3 fixed top-0 transition-colors duration-300 ${
           navbarColor
             ? "!bg-white shadow-small duration-1000"
             : "bg-transparent"
-        }`}
+        } z-50`}
       >
-        <div className=" hidden lg:block">
-          <div className="flex items-center container  justify-between">
+        {/* Navbar top */}
+        <div className="hidden lg:block">
+          <div className="flex items-center container justify-between">
             <div className="w-full flex items-center gap-x-10 2xl:gap-x-20">
               <Link href={"/"}>
                 <Image
                   src={
                     navbarColor
-                      ? "/assets/site-logo/hazel-logo-black.png "
+                      ? "/assets/site-logo/hazel-logo-black.png"
                       : "/assets/site-logo/hazel-logo-white.png"
                   }
                   alt="Hazel Logo"
                   width={500}
                   height={500}
-                  className="cursor-pointer w-[180px] xl:w-[150px]  h-auto mt-2 mb-2"
+                  className="cursor-pointer w-[180px] xl:w-[150px] h-auto mt-2 mb-2"
                 />
               </Link>
             </div>
 
             <div className="w-full">
               <div
-                className={`flex items-center justify-end gap-x-10  xl:gap-x-12 ${
+                className={`flex items-center justify-end gap-x-10 xl:gap-x-12 ${
                   navbarColor
-                    ? "text-black border-black "
-                    : "text-white border-white "
+                    ? "text-black border-black"
+                    : "text-white border-white"
                 }`}
               >
                 <div>
@@ -97,7 +122,9 @@ const MainNavbar = () => {
                 <div className="">
                   <Link
                     href={`/`}
-                    className={`cursor-pointer uppercase text-lg lg:text-[17px] font-semibold transition-all duration-300 h-7 border-b-1  font-aviano-regular pb-1`}
+                    className={`cursor-pointer uppercase text-lg lg:text-[17px] font-semibold transition-all duration-300 h-7 border-b-1 font-aviano-regular pb-1 ${
+                      navbarColor ? "border-black" : "border-white"
+                    }`}
                   >
                     Boutiques
                   </Link>
@@ -105,59 +132,51 @@ const MainNavbar = () => {
                 <div className="">
                   <Link
                     href={`/`}
-                    className={`cursor-pointer uppercase text-lg lg:text-[17px] font-semibold transition-all duration-300 h-7  border-1 p-2  font-aviano-regular`}
+                    className={`cursor-pointer uppercase text-lg lg:text-[17px] font-semibold transition-all duration-300 h-7 border-1 p-2 font-aviano-regular ${
+                      navbarColor ? "border-black" : "border-white"
+                    }`}
                   >
                     Contact us
                   </Link>
                 </div>
 
-                <div>
-                  <IoReorderThreeOutline className="size-8 hover:text-black" />
-                </div>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(!isMenuOpen);
+                  }}
+                  className={`${navbarColor ? "text-black" : "text-white"}`}
+                >
+                  {isMenuOpen ? (
+                    <RxCross2 className="size-8 " />
+                  ) : (
+                    <IoReorderThreeOutline className="size-8 " />
+                  )}
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div className="lg:hidden ">
-          <Navbar
-            isMenuOpen={isMenuOpen}
-            onMenuOpenChange={setIsMenuOpen}
-            className={` bg-white  py-4`}
-          >
-            <NavbarContent>
-              <NavbarMenuToggle
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className="lg:hidden text-black"
-              />
-              <NavbarBrand>
-                <Link href="/">
-                  <Image
-                    src={"/assets/site-logo/hazel-logo-black.png"}
-                    alt="EssenceVFX"
-                    width={500}
-                    height={500}
-                    className="cursor-pointer w-[140px]  h-auto mt-2 mb-2"
-                  />
-                </Link>
-              </NavbarBrand>
-            </NavbarContent>
+      </div>
 
-            <NavbarMenu className="overflow-hidden  mt-6">
-              {menuItems.map((el, index) => (
-                <NavbarMenuItem key={el.slug} className="flex flex-row mt-2">
-                  <Link
-                    className={`w-full  text-black text-center !text-xl font-medium py-1 ${
-                      pathname === el.slug ? "!text-primary" : ""
-                    } ${index === 0 ? "mt-6" : ""}`}
-                    href={el.slug}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {el.title}
-                  </Link>
-                </NavbarMenuItem>
-              ))}
-            </NavbarMenu>
-          </Navbar>
+      {/* Toggle Active */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full z-40 transition-transform duration-1000 ease-in-out ${
+          isMenuOpen
+            ? "translate-x-0 bg-black opacity-90"
+            : "translate-x-full bg-black"
+        }`}
+      >
+        <div className="text-white p-8 container my-20">
+          <Link href="#our-story" className="block text-lg mb-4">
+            Our Story
+          </Link>
+          <Link href="#gallery" className="block text-lg mb-4">
+            Gallery
+          </Link>
+          <Link href="#contact" className="block text-lg">
+            Contact Us
+          </Link>
         </div>
       </div>
     </section>

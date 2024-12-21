@@ -32,23 +32,23 @@ const data = [
 
 const PackagingEveryDetails = () => {
   return (
-    <div className="bg-[#f2e3ec30] ">
+    <div className="bg-sectionbg ">
       <div className="container py-10 md:pt-40 md:pb-20">
-        <div className="flex justify-between items-center">
-          <div className="w-[40%]">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="w-[100%] md:w-[40%]">
             <div className="font-aviano-regular">
-              <h2 className="text-4xl font-semibold uppercase ">
+              <h2 className="text-2xl  md:text-4xl font-semibold uppercase text-center md:text-left">
                 Packaging <br />
                 Every details
-                <br /> Matters
+                <br className="hidden md:block" /> Matters
               </h2>
-              <h2 className="text-xl font-semibold mt-3 ">
+              <h2 className="text-base md:text-xl font-semibold mt-3 text-center md:text-left ">
                 {` Choose between our online exclusive tote or boutique shopping bag to give your order the perfect finishL`}
               </h2>
             </div>
           </div>
-          <div className="w-[60%]">
-            <div className="flex items-stretch  justify-between space-x-6">
+          <div className="w-full md:w-[60%]">
+            <div className="flex flex-col md:flex-row items-stretch  justify-between space-y-8 md:space-y-0 md:space-x-6">
               {data?.map((el, index) => (
                 <div className="">
                   <Image

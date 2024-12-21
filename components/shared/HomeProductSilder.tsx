@@ -40,11 +40,11 @@ const HomeProductSlider = () => {
       <div className="">
         <div className="">
           {/* Previous Button */}
-          <div className="absolute z-50 left-1 top-[40%]">
+          <div className="absolute z-50 -left-2 md:left-1 top-[45%]">
             <button
               ref={prevButtonRef}
               onClick={() => swiperRef.current?.slidePrev()}
-              className="p-2 bg-white lg:bg-transparent z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
+              className="p-2  z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
             >
               <IoIosArrowBack className="text-gray-100 hover:text-black size-6" />
             </button>
@@ -86,11 +86,11 @@ const HomeProductSlider = () => {
           </div>
 
           {/* Next Button */}
-          <div className="absolute z-50 right-1 top-[40%]">
+          <div className="absolute z-50 -right-2 md:right-1 top-[45%]">
             <button
               ref={nextButtonRef}
               onClick={() => swiperRef.current?.slideNext()}
-              className="p-2 bg-white lg:bg-transparent w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
+              className="p-2  w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
             >
               <IoIosArrowForward className="text-gray-100 hover:text-black size-6" />
             </button>
