@@ -37,7 +37,7 @@
   display: inline-block;
   color: white;
   font-weight: 600;
-  font-size: 1.125rem; /* text-lg */
+  font-size: 1.125rem; /* Base font size for larger screens */
   cursor: pointer;
   padding-bottom: 0.25rem;
 }
@@ -63,4 +63,19 @@
 .nav-item.active::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 1024px) {
+  /* For tablets */
+  .nav-item {
+    font-size: 1rem; /* Slightly smaller */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For mobile devices */
+  .nav-item {
+    font-size: 0.875rem; /* Smaller font size for smaller screens */
+  }
 }

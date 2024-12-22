@@ -186,11 +186,11 @@ const HeroSectionslider = () => {
               onClick={() => swiperRef.current?.slidePrev()}
             >
               <BsArrowLeft className="size-4 md:size-6" />
-              <h2 className="font-aviano-regular text-sm md:text-lg  md:nav-item">
+              <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
                 Previous
               </h2>
             </button>
-            <h2 className="font-aviano-regular text-sm md:text-lg text-white border-b-2 border-white md:pb-2  md:nav-item">
+            <h2 className="font-aviano-regular text-sm md:text-lg text-white border-b-2 border-white md:pb-2  nav-item">
               See the looks
             </h2>
             <button
@@ -198,7 +198,7 @@ const HeroSectionslider = () => {
               ref={nextButtonRef}
               onClick={() => swiperRef.current?.slideNext()}
             >
-              <h2 className="font-aviano-regular text-sm md:text-lg  md:nav-item">
+              <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
                 Next
               </h2>
               <BsArrowRight className="size-4 md:size-6" />

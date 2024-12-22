@@ -99,7 +99,7 @@ const MainFooter = () => {
           <h2 className="text-base md:text-lg text-center md:text-left">
             COPYRIGHT © HAZEL Norway. ALL RIGHTS RESERVED.
           </h2>
-          <div className="flex flex-col md:flex-row items-center justify-between space-6 mb-5 md:mb-0">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-5 md:mb-0">
             <Link href={"/privacy-policy"} className="hover:underline ">
               <h2 className="text-base md:text-lg">Privacy Policy</h2>
             </Link>

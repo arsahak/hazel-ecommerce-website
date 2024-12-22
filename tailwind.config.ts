@@ -13,7 +13,7 @@ export default {
       colors: {
         primary: "#EC2C36",
         secondary: "#131313",
-        sectionbg: "#f2e3ec40",
+        sectionbg: "#F3F1F0",
         black: "#000000",
         white: "#FFFFFF",
       },

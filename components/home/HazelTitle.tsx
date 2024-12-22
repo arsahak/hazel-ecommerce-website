@@ -9,8 +9,9 @@ const HazelTitle = () => {
           <Image
             src="/assets/home/title-bg.png"
             alt="home-banner"
-            width={100}
-            height={100}
+            width={1000}
+            height={1000}
+            quality={100}
             className="absolute inset-0 z-10 w-full h-full object-contain" // Ensures full image visibility
           />
 
@@ -20,8 +21,9 @@ const HazelTitle = () => {
               src="/assets/home/hazel-title.png"
               alt="home-title"
               priority
-              width={500}
-              height={400}
+              width={1000}
+              height={800}
+              quality={100}
               className="w-[700px] h-auto"
             />
           </div>

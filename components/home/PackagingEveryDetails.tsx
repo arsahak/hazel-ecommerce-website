@@ -33,9 +33,9 @@ const data = [
 const PackagingEveryDetails = () => {
   return (
     <div className="bg-sectionbg ">
-      <div className="container py-10 md:pt-40 md:pb-20">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="w-[100%] md:w-[40%]">
+      <div className="container py-10 md:py-20">
+        <div className="flex flex-col md:flex-row justify-between items-center md:space-x-8">
+          <div className="w-[100%] md:w-[35%]">
             <div className="font-aviano-regular">
               <h2 className="text-2xl  md:text-4xl font-semibold uppercase text-center md:text-left">
                 Packaging <br />
@@ -47,7 +47,7 @@ const PackagingEveryDetails = () => {
               </h2>
             </div>
           </div>
-          <div className="w-full md:w-[60%]">
+          <div className="w-full md:w-[65%]  pt-8 md:pt-0">
             <div className="flex flex-col md:flex-row items-stretch  justify-between space-y-8 md:space-y-0 md:space-x-6">
               {data?.map((el, index) => (
                 <div className="">
@@ -61,7 +61,7 @@ const PackagingEveryDetails = () => {
                     quality={100}
                   />
 
-                  <h2 className="text-lg font-semibold uppercase font-aviano-regular mt-3">
+                  <h2 className="text-xl font-semibold uppercase font-aviano-regular mt-3">
                     {el.title}
                   </h2>
 
