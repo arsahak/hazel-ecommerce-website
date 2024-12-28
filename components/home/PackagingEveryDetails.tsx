@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
+import ImageMotion from "../motion/ImageMotion";
 
 const data = [
   {
@@ -37,46 +38,52 @@ const PackagingEveryDetails = () => {
         <div className="flex flex-col md:flex-row justify-between items-center md:space-x-8">
           <div className="w-[100%] md:w-[35%]">
             <div className="">
-              <h2 className="text-2xl  md:text-4xl font-semibold uppercase text-center md:text-left font-aviano-regular">
-                Packaging <br />
-                Every details
-                <br className="hidden md:block" /> Matters
-              </h2>
-              <h2 className="text-base md:text-xl font-normal mt-3 text-center md:text-left font-outfit-sans">
-                {` Choose between our online exclusive tote or boutique shopping bag to give your order the perfect finishL`}
-              </h2>
+              <ImageMotion>
+                <h2 className="text-2xl  md:text-4xl font-semibold uppercase text-center md:text-left font-aviano-regular">
+                  Packaging <br />
+                  Every details
+                  <br className="hidden md:block" /> Matters
+                </h2>
+              </ImageMotion>
+              <ImageMotion>
+                <h2 className="text-base md:text-xl font-normal mt-3 text-center md:text-left font-outfit-sans">
+                  {` Choose between our online exclusive tote or boutique shopping bag to give your order the perfect finishL`}
+                </h2>
+              </ImageMotion>
             </div>
           </div>
           <div className="w-full md:w-[65%]  pt-8 md:pt-0">
             <div className="flex flex-col md:flex-row items-stretch  justify-between space-y-8 md:space-y-0 md:space-x-6">
               {data?.map((el, index) => (
-                <div className="">
-                  <Image
-                    className="w-full h-auto transition-all duration-700 ease-in-out"
-                    width={1000}
-                    height={1000}
-                    src={el?.image}
-                    alt={`Gallery Image}`}
-                    priority
-                    quality={100}
-                  />
+                <ImageMotion key={index}>
+                  <div className="">
+                    <Image
+                      className="w-full h-auto transition-all duration-700 ease-in-out"
+                      width={1000}
+                      height={1000}
+                      src={el?.image}
+                      alt={`Gallery Image}`}
+                      priority
+                      quality={100}
+                    />
 
-                  <h2 className="text-xl font-semibold uppercase font-aviano-regular mt-3">
-                    {el.title}
-                  </h2>
+                    <h2 className="text-xl font-semibold uppercase font-aviano-regular mt-3">
+                      {el.title}
+                    </h2>
 
-                  <p className="text-lg font-light mt-1 font-outfit-sans">
-                    {el?.description}
-                  </p>
+                    <p className="text-lg font-light mt-1 font-outfit-sans">
+                      {el?.description}
+                    </p>
 
-                  <Link
-                    href={el?.ctaLink}
-                    className="text-lg font-semibold mt-1 font-outfit-sans flex items-center space-x-2"
-                  >
-                    <p className="hover:underline"> {el?.ctaText}</p>
-                    <BsArrowRight className="size-6" />
-                  </Link>
-                </div>
+                    <Link
+                      href={el?.ctaLink}
+                      className="text-lg font-semibold mt-1 font-outfit-sans flex items-center space-x-2"
+                    >
+                      <p className="hover:underline"> {el?.ctaText}</p>
+                      <BsArrowRight className="size-6" />
+                    </Link>
+                  </div>
+                </ImageMotion>
               ))}
             </div>
           </div>

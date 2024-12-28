@@ -4,7 +4,7 @@ import "./globals.css";
 
 import MainFooter from "@/components/layout/MainFooter";
 import MainNavbar from "@/components/layout/MainNavbar";
-import RouteLoader from "@/components/motion/PageLoader";
+import SmoothScrolling from "@/components/motion/SmoothScrolling";
 import { Providers } from "./providers";
 
 const outfitSans = Outfit({
@@ -37,13 +37,13 @@ export default function RootLayout({
       <body
         className={`${outfitSans.variable} ${avianoBold.variable} ${avianoRegular.variable}  antialiased`}
       >
-        <RouteLoader>
-          <Providers>
+        <Providers>
+          <SmoothScrolling>
             <MainNavbar />
             <div> {children}</div>
             <MainFooter />
-          </Providers>
-        </RouteLoader>
+          </SmoothScrolling>
+        </Providers>
       </body>
     </html>
   );

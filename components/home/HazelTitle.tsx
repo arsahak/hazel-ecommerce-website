@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageMotion from "../motion/ImageMotion";
 
 const HazelTitle = () => {
   return (
@@ -17,15 +18,17 @@ const HazelTitle = () => {
 
           {/* Title Image */}
           <div className="relative z-20 flex justify-center items-center">
-            <Image
-              src="/assets/home/hazel-title.png"
-              alt="home-title"
-              priority
-              width={1000}
-              height={800}
-              quality={100}
-              className="w-[700px] h-auto"
-            />
+            <ImageMotion>
+              <Image
+                src="/assets/home/hazel-title.png"
+                alt="home-title"
+                priority
+                width={1000}
+                height={800}
+                quality={100}
+                className="w-[700px] h-auto"
+              />
+            </ImageMotion>
           </div>
         </div>
       </div>
