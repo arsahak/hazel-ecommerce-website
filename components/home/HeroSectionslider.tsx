@@ -83,32 +83,12 @@ const HeroSectionslider = () => {
     },
   };
 
-  // useEffect(() => {
-  //   if (
-  //     swiperRef.current &&
-  //     swiperRef.current.activeIndex !== silderIndexValue
-  //   ) {
-  //     swiperRef.current.slideTo(sidlerIndexValue);
-  //   }
-  // }, [sidlerIndexValue]);
-
-  // const handleSlideChange = (swiper: any) => {
-  //   setSidlerIndexValue(swiper.activeIndex);
-  // };
-
   const text = "READY-TO-WEAR COLLECTION".split(" ");
-
-  console.log("check data", currentIndex);
 
   return (
     <div className="relative md:overflow-hidden">
       <div className="relative h-[650px] md:h-[900px]">
         <Swiper
-          // loop={true}
-          // autoplay={{
-          //   delay: 3000,
-          //   disableOnInteraction: false,
-          // }}
           speed={800}
           modules={[Autoplay, Navigation, Pagination, Keyboard]}
           onBeforeInit={(swiper) => (swiperRef.current = swiper)}
@@ -200,8 +180,6 @@ const HeroSectionslider = () => {
                     ? "w-[60%]"
                     : currentIndex === 1
                     ? "w-[30%]"
-                    : currentIndex === 2
-                    ? "w-[30%]"
                     : "w-[15%]"
                 }`}
               />
@@ -209,7 +187,7 @@ const HeroSectionslider = () => {
             <div className="flex justify-between items-center mt-10">
               <button
                 className="flex items-center space-x-3 text-white"
-                ref={prevButtonRef}
+                // ref={prevButtonRef}
                 onClick={() => swiperRef.current?.slidePrev()}
               >
                 <BsArrowLeft className="size-4 md:size-6" />
@@ -222,7 +200,6 @@ const HeroSectionslider = () => {
               </h2>
               <button
                 className="flex items-center space-x-3 text-white"
-                ref={nextButtonRef}
                 onClick={() => swiperRef.current?.slideNext()}
               >
                 <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
