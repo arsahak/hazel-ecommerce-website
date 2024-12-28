@@ -52,7 +52,7 @@ const FindaBoutique = () => {
                 </div>
               </ImageMotion>
             </div>
-            <div className="flex justify-center md:justify-end">
+            <div className="flex justify-center md:justify-start">
               <ImageMotion>
                 <h2 className="text-xl font-semibold font-aviano-regular uppercase mt-5 text-center md:text-left">
                   Opening hours
