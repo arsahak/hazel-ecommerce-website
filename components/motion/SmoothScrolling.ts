@@ -1,12 +1,18 @@
 "use client";
-import { ReactLenis } from "@studio-freight/react-lenis";
 
-function SmoothScrolling({ children }: any) {
-  return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
-      {children}
-    </ReactLenis>
-  );
+import { ReactNode } from "react";
+import Scrollbar from "react-smooth-scrollbar";
+import { ScrollbarProps } from "smooth-scrollbar-react";
+
+interface SmoothScrollingProps extends ScrollbarProps {
+  children: ReactNode;
 }
+
+const SmoothScrolling: React.FC<SmoothScrollingProps> = ({
+  children,
+  ...scrollbarProps
+}) => {
+  return <Scrollbar {...scrollbarProps}>{children}</Scrollbar>;
+};
 
 export default SmoothScrolling;
