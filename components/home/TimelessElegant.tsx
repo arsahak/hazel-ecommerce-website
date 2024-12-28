@@ -18,18 +18,18 @@ const TimelessElegant = () => {
 
           {/* Text Content */}
           <div className="relative z-20 text-center font-outfit-sans uppercase">
-            <ScrollMotionEffect effect="fade-up" duration="1000">
+            <ScrollMotionEffect effect="fade-right" duration="1000">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-800 tracking-wide mt-4 sm:mt-6 lg:mt-8">
                 TIMELESS
               </h2>
             </ScrollMotionEffect>
 
-            <ScrollMotionEffect effect="fade-right" duration="1000">
+            <ScrollMotionEffect effect="fade-left" duration="1000">
               <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-black mt-2 -mb-4 sm:-mb-6 lg:-mb-8">
                 ELEGANT
               </h2>
             </ScrollMotionEffect>
-            <ScrollMotionEffect effect="fade-left" duration="1000">
+            <ScrollMotionEffect effect="fade-right" duration="1000">
               <p
                 className="text-5xl sm:text-7xl md:text-9xl lg:text-[140px] font-extrabold text-transparent uppercase underline decoration-transparent mt-7 md:mt-9"
                 style={{

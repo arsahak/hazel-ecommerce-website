@@ -80,7 +80,7 @@ const MainNavbar = () => {
   return (
     <section className={`relative z-50`}>
       <div
-        className={`w-full py-3 md:py-3 fixed top-0 transition-colors duration-300 ${
+        className={`w-full py-3 md:py-3 fixed top-0 transition-colors duration-100 ${
           navbarColor
             ? "!bg-white shadow-small duration-1000"
             : "bg-transparent"

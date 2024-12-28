@@ -6,7 +6,7 @@ import React, { ReactNode, useEffect } from "react";
 interface ScrollMotionEffectProps {
   children: ReactNode;
   effect: string; // Changed to `string` for TypeScript consistency
-  duration: number; // Changed to `number` for TypeScript consistency
+  duration: string; // Changed to `number` for TypeScript consistency
 }
 
 const ScrollMotionEffect: React.FC<ScrollMotionEffectProps> = ({
