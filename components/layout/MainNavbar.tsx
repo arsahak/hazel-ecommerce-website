@@ -98,8 +98,9 @@ const MainNavbar = () => {
                       : "/assets/site-logo/hazel-logo-white.png"
                   }
                   alt="Hazel Logo"
-                  width={500}
-                  height={500}
+                  width={1000}
+                  height={1000}
+                  quality={100}
                   className="cursor-pointer w-[100px] md:w-[180px] h-auto mt-2 mb-2"
                 />
               </Link>

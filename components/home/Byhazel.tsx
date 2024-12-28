@@ -14,17 +14,17 @@ const Byhazel = () => {
   return (
     <div className="bg-sectionbg ">
       <div className="container py-10 md:py-20">
-        <div className="font-aviano-regular ">
+        <div className="">
           <div className="text-center md:text-left">
-            <h2 className="text-2xl md:text-4xl font-semibold uppercase ">
+            <h2 className="text-2xl md:text-4xl font-semibold uppercase font-aviano-regular ">
               @byhazel
             </h2>
-            <h2 className="text-base md:text-xl font-semibold mt-3 uppercase ">
+            <h2 className="text-base md:text-xl font-normal mt-3 uppercase font-outfit-sans">
               {` If you weare’em, flaunt’em. Remember to tag us to get featured.
               That’s @BYHAZEL`}
             </h2>
           </div>
-          <h2 className="text-base md:text-xl font-normal mt-6 font-outfit-sans text-center md:text-left">
+          <h2 className="text-base md:text-lg font-normal mt-8 font-outfit-sans text-center md:text-left">
             Filter by category
           </h2>
           <div className="flex items-center flex-wrap space-x-1 md:space-x-3 my-6 font-outfit-sans justify-center md:justify-start">

@@ -40,6 +40,16 @@ const sliderData = [
             sense of color, movement, and space perfectly matches his
             interest in poetry and myth.`,
     actions: "/",
+    image: "/assets/home/hero-img/hero-section-two.jpg",
+  },
+  {
+    subTitle: "Spring-Summer 2025",
+    title: "READY-TO-WEAR COLLECTION",
+    desc: `Heir to the visionary tradition of British Romanticism, John
+            Boorman is one of the great masters of cinematic form. His
+            sense of color, movement, and space perfectly matches his
+            interest in poetry and myth.`,
+    actions: "/",
     image: "/assets/home/hero-img/hero-section-three.jpg",
   },
 ];
@@ -88,15 +98,17 @@ const HeroSectionslider = () => {
 
   const text = "READY-TO-WEAR COLLECTION".split(" ");
 
+  console.log("check data", currentIndex);
+
   return (
     <div className="relative md:overflow-hidden">
-      <div className="relative h-[650px] md:h-[850px]">
+      <div className="relative h-[650px] md:h-[900px]">
         <Swiper
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          // loop={true}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: false,
+          // }}
           speed={800}
           modules={[Autoplay, Navigation, Pagination, Keyboard]}
           onBeforeInit={(swiper) => (swiperRef.current = swiper)}
@@ -108,14 +120,14 @@ const HeroSectionslider = () => {
         >
           {sliderData.map((el, index) => (
             <SwiperSlide key={index}>
-              <div className="relative h-[650px] md:h-[850px]">
+              <div className="relative h-[650px] md:h-[900px]">
                 <Image
                   src={el.image}
                   alt="home-banner"
                   layout="fill"
                   objectFit="cover"
                   priority
-                  className="z-10"
+                  className="z-10 object-top"
                   rel="preload"
                 />
               </div>
@@ -133,7 +145,7 @@ const HeroSectionslider = () => {
           }}
         >
           <div className="container">
-            <div className="grid items-center grid-cols-1 md:grid-cols-3">
+            <div className="grid items-center grid-cols-1 md:grid-cols-3 px-[4%] mt-[10%] ">
               <div className="col-span-2">
                 <motion.h2
                   variants={variants}
@@ -158,7 +170,7 @@ const HeroSectionslider = () => {
                 </motion.h1>
                 <motion.p
                   variants={variants}
-                  className="mt-6 text-center text-white text-md md:text-lg md:mt-5 md:text-left font-outfit-sans"
+                  className="mt-6 text-center text-white text-md md:text-lg md:mt-5 md:text-left font-outfit-sans w-full md:w-[85%]"
                 >
                   {/* {el.desc} */}`Heir to the visionary tradition of British
                   Romanticism, John Boorman is one of the great masters of
@@ -171,7 +183,7 @@ const HeroSectionslider = () => {
                 >
                   <Link
                     href={"/"}
-                    className="flex items-center justify-center px-2 py-2 mb-2 text-sm font-medium text-white border border-white bg-none hover:bg-black md:text-lg md:px-8 me-0 md:me-6 w-44 uppercase font-aviano-regular"
+                    className="flex items-center justify-center px-2 py-2 mb-2 text-sm font-medium text-white border border-white bg-[#f8fafc21] hover:bg-black md:text-lg md:px-8 me-0 md:me-6 w-44 uppercase font-aviano-regular"
                   >
                     Discover
                   </Link>
@@ -179,30 +191,46 @@ const HeroSectionslider = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center absolute bottom-4 md:bottom-10 container left-0 right-0">
-            <button
-              className="flex items-center space-x-3 text-white"
-              ref={prevButtonRef}
-              onClick={() => swiperRef.current?.slidePrev()}
-            >
-              <BsArrowLeft className="size-4 md:size-6" />
-              <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
-                Previous
+
+          <div className="absolute bottom-4 md:bottom-10 container left-0 right-0">
+            <div className="md:flex md:justify-end hidden ">
+              <div
+                className={`border-b-1 border-white transition-all duration-2000 ease-in-out ${
+                  currentIndex === 0
+                    ? "w-[60%]"
+                    : currentIndex === 1
+                    ? "w-[30%]"
+                    : currentIndex === 2
+                    ? "w-[30%]"
+                    : "w-[15%]"
+                }`}
+              />
+            </div>
+            <div className="flex justify-between items-center mt-10">
+              <button
+                className="flex items-center space-x-3 text-white"
+                ref={prevButtonRef}
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <BsArrowLeft className="size-4 md:size-6" />
+                <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
+                  Previous
+                </h2>
+              </button>
+              <h2 className="font-aviano-regular text-sm md:text-lg text-white border-b-2 border-white md:pb-2  nav-item">
+                See the looks
               </h2>
-            </button>
-            <h2 className="font-aviano-regular text-sm md:text-lg text-white border-b-2 border-white md:pb-2  nav-item">
-              See the looks
-            </h2>
-            <button
-              className="flex items-center space-x-3 text-white"
-              ref={nextButtonRef}
-              onClick={() => swiperRef.current?.slideNext()}
-            >
-              <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
-                Next
-              </h2>
-              <BsArrowRight className="size-4 md:size-6" />
-            </button>
+              <button
+                className="flex items-center space-x-3 text-white"
+                ref={nextButtonRef}
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <h2 className="font-aviano-regular text-sm md:text-lg  nav-item">
+                  Next
+                </h2>
+                <BsArrowRight className="size-4 md:size-6" />
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -36,13 +36,13 @@ const PackagingEveryDetails = () => {
       <div className="container py-10 md:py-20">
         <div className="flex flex-col md:flex-row justify-between items-center md:space-x-8">
           <div className="w-[100%] md:w-[35%]">
-            <div className="font-aviano-regular">
-              <h2 className="text-2xl  md:text-4xl font-semibold uppercase text-center md:text-left">
+            <div className="">
+              <h2 className="text-2xl  md:text-4xl font-semibold uppercase text-center md:text-left font-aviano-regular">
                 Packaging <br />
                 Every details
                 <br className="hidden md:block" /> Matters
               </h2>
-              <h2 className="text-base md:text-xl font-semibold mt-3 text-center md:text-left ">
+              <h2 className="text-base md:text-xl font-normal mt-3 text-center md:text-left font-outfit-sans">
                 {` Choose between our online exclusive tote or boutique shopping bag to give your order the perfect finishL`}
               </h2>
             </div>
