@@ -1,15 +1,19 @@
+"use client";
+import { Progress } from "@nextui-org/react";
+
 export default function Loading() {
   return (
-    <div className="w-full h-[100vh] flex items-center justify-center bg-white">
-      {/* <Image
-        src="/assets/site-logo/vfx-loading-animation.gif"
-        alt="EssenceVFX"
-        width={500}
-        height={500}
-        className="cursor-pointer w-[300px] h-auto mt-2 mb-2"
-        unoptimized
-      /> */}{" "}
-      Your Logo...
+    <div className=" bg-white w-full">
+      <Progress
+        isIndeterminate
+        aria-label="Loading..."
+        className="max-w-full"
+        size="sm"
+        color="default"
+      />
+      <div className="  h-[100vh]  flex items-center justify-center">
+        <h3 className="font-normal text-3xl"> Your Animation Logo...</h3>
+      </div>
     </div>
   );
 }

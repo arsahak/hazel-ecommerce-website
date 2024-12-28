@@ -32,16 +32,16 @@ const sliderData = [
     actions: "/",
     image: "/assets/home/hero-img/hero-section-two.jpg",
   },
-  {
-    subTitle: "Spring-Summer 2025",
-    title: "READY-TO-WEAR COLLECTION",
-    desc: `Heir to the visionary tradition of British Romanticism, John
-            Boorman is one of the great masters of cinematic form. His
-            sense of color, movement, and space perfectly matches his
-            interest in poetry and myth.`,
-    actions: "/",
-    image: "/assets/home/hero-img/hero-section-two.jpg",
-  },
+  // {
+  //   subTitle: "Spring-Summer 2025",
+  //   title: "READY-TO-WEAR COLLECTION",
+  //   desc: `Heir to the visionary tradition of British Romanticism, John
+  //           Boorman is one of the great masters of cinematic form. His
+  //           sense of color, movement, and space perfectly matches his
+  //           interest in poetry and myth.`,
+  //   actions: "/",
+  //   image: "/assets/home/hero-img/hero-section-two.jpg",
+  // },
   {
     subTitle: "Spring-Summer 2025",
     title: "READY-TO-WEAR COLLECTION",

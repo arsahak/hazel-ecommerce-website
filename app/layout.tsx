@@ -4,6 +4,7 @@ import "./globals.css";
 
 import MainFooter from "@/components/layout/MainFooter";
 import MainNavbar from "@/components/layout/MainNavbar";
+import PageLoader from "@/components/motion/PageLoader";
 import SmoothScrolling from "@/components/motion/SmoothScrolling";
 import { Providers } from "./providers";
 
@@ -37,13 +38,16 @@ export default function RootLayout({
       <body
         className={`${outfitSans.variable} ${avianoBold.variable} ${avianoRegular.variable}  antialiased`}
       >
-        <Providers>
-          <SmoothScrolling>
-            <MainNavbar />
-            <div> {children}</div>
-            <MainFooter />
-          </SmoothScrolling>
-        </Providers>
+        <PageLoader>
+          {" "}
+          <Providers>
+            <SmoothScrolling>
+              <MainNavbar />
+              <div> {children}</div>
+              <MainFooter />
+            </SmoothScrolling>
+          </Providers>
+        </PageLoader>
       </body>
     </html>
   );
